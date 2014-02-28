@@ -93,7 +93,7 @@
   };
 
   $.fn.noreferrer = function(selector, url_matches) {
-    NoReferrer.Browser.init(selector, url_matches);
+    NoReferrer.init(selector, url_matches);
     return this;
   };
 })(jQuery);
