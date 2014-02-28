@@ -15,3 +15,7 @@ The following exmaple will intercept and remove the referrer information to any 
   $(document).ready(function(){
     $('a').noreferrer(['google', 'yahoo.com']);
   });
+
+--
+An example application can be seen at
+http://test-referrer.herokuapp.com/
