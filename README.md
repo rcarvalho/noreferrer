@@ -1,7 +1,11 @@
 noreferrer
 ==========
 
-Removes referrer information on an html link
+Gem for a Rails project that removes referrer information on an html link
+
+
+Include this in your application.js file:
+//= require jquery.noreferrer.js
 
 $('a').noreferrer(<array of strings to be regex matched with link hrefs>)
 
