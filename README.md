@@ -13,9 +13,9 @@ Example:
 The following exmaple will intercept and remove the referrer information to any links that link to google.
 
   $(document).ready(function(){
-    $('a').noreferrer(['google', 'yahoo.com']);
+    jQuery.noreferrer('a', ['google', 'yahoo.com']);
   });
 
 --
-An example application can be seen at
+A LIVE example application can be seen at
 http://test-referrer.herokuapp.com/

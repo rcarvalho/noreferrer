@@ -11,14 +11,14 @@
 
 (function($){
   NoReferrer = {
-    init: function(matches){
+    init: function(selector, url_matches){
       NoReferrer.Browser.init();
       if(matches != undefined){
         for(i=0;i<matches.length;i++){
           matches[i]
         }
       }
-      $('a').on('click', function(e){
+      $(document.body).on('click', selector, function(e){
         if(matches == undefined){
           NoReferrer.Link.go($(this).attr('href'));
           return false;        
@@ -92,27 +92,8 @@
     }
   };
 
-  $.fn.noreferrer = function(matches) {
-    NoReferrer.Browser.init();
-    if(matches != undefined){
-      for(i=0;i<matches.length;i++){
-        matches[i]
-      }
-    }
-    this.on('click', function(e){
-      if(matches == undefined){
-        NoReferrer.Link.go($(this).attr('href'));
-        return false;        
-      }
-      else{
-        for(i=0;i<matches.length;i++){
-          if(new RegExp(matches[i]).test($(this).attr('href'))){
-            NoReferrer.Link.go($(this).attr('href'));
-            return false;
-          }
-        }
-      }
-    });
+  $.fn.noreferrer = function(selector, url_matches) {
+    NoReferrer.Browser.init(selector, matches);
     return this;
   };
 })(jQuery);
