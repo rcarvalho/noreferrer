@@ -11,7 +11,7 @@
 
 (function($){
   NoReferrer = {
-    init: function(selector, url_matches){
+    init: function(selector, matches){
       NoReferrer.Browser.init();
       if(matches != undefined){
         for(i=0;i<matches.length;i++){

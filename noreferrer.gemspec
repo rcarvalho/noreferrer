@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |gem|
   gem.name          = "noreferrer"
-  gem.version       = 0.5
+  gem.version       = 0.6
   gem.authors       = ["Rodney Carvalho"]
   gem.email         = ["rcarvalho@atlantistech.com"]
   gem.description   = "Removes referrer information on an html link."
