@@ -13,7 +13,7 @@ Example:
 The following exmaple will intercept and remove the referrer information to any links that link to google.
 
   $(document).ready(function(){
-    jQuery.noreferrer('a', ['google', 'yahoo.com']);
+    $(document).noreferrer('a', ['google', 'yahoo.com']);
   });
 
 --
