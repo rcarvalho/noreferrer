@@ -8,6 +8,7 @@ Gem::Specification.new do |gem|
   gem.authors       = ["Rodney Carvalho"]
   gem.email         = ["rcarvalho@atlantistech.com"]
   gem.description   = "Removes referrer information on an html link."
+  gem.summary       = "Removes referrer information on an html link."
   gem.homepage      = "https://github.com/rjcarvalho/noreferrer"
 
   gem.files         = `git ls-files`.split($/)
