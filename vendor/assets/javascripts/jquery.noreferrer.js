@@ -20,14 +20,12 @@
       }
       $(document.body).on('click', selector, function(e){
         if(matches == undefined){
-          NoReferrer.Link.go($(this).attr('href'), $(this).attr('target'));
-          return false;        
+          NoReferrer.Link.go($(this).attr('data-url'), $(this).attr('target'));
         }
         else{
           for(i=0;i<matches.length;i++){
-            if(new RegExp(matches[i]).test($(this).attr('href'))){
-              NoReferrer.Link.go($(this).attr('href'), $(this).attr('target'));
-              return false;
+            if(new RegExp(matches[i]).test($(this).attr('data-url'))){
+              NoReferrer.Link.go($(this).attr('data-url'), $(this).attr('target'));
             }
           }
         }
@@ -81,7 +79,6 @@
         }
         else if(NoReferrer.Browser.browser['webkit']){
           wnd.location = "data:text/html,<script>location='" + url + ((new RegExp(/\?/).test(url)) ? '&_=' : '?_=') + Math.random() + "'</scr"+"ipt>";
-          return false;      
         }
         else if(NoReferrer.Browser.browser['mozilla']){
           wnd.location = 'data:text/html,<html><meta http-equiv="refresh" content="0; url='+ url + '"></html>';
