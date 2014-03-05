@@ -19,13 +19,15 @@
         }
       }
       $(document.body).on('click', selector, function(e){
+        e.stopPropagation();
+        e.preventDefault();
         if(matches == undefined){
-          NoReferrer.Link.go($(this).attr('data-url'), $(this).attr('target'));
+          NoReferrer.Link.go($(this).attr('href'), $(this).attr('target'));
         }
         else{
           for(i=0;i<matches.length;i++){
-            if(new RegExp(matches[i]).test($(this).attr('data-url'))){
-              NoReferrer.Link.go($(this).attr('data-url'), $(this).attr('target'));
+            if(new RegExp(matches[i]).test($(this).attr('href'))){
+              NoReferrer.Link.go($(this).attr('href'), $(this).attr('target'));
             }
           }
         }
