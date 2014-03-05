@@ -20,13 +20,13 @@
       }
       $(document.body).on('click', selector, function(e){
         if(matches == undefined){
-          NoReferrer.Link.go($(this).attr('href'));
+          NoReferrer.Link.go($(this).attr('href'), $(this).attr('target'));
           return false;        
         }
         else{
           for(i=0;i<matches.length;i++){
             if(new RegExp(matches[i]).test($(this).attr('href'))){
-              NoReferrer.Link.go($(this).attr('href'));
+              NoReferrer.Link.go($(this).attr('href'), $(this).attr('target'));
               return false;
             }
           }
@@ -67,26 +67,24 @@
       }
     },
     Link: {
-      go: function(url){
+      go: function(url, target){
+        var wnd = null;
+        if(target == '_blank'){
+          wnd = window.open();  
+        }
+        else{
+          wnd = window;
+        }
+
         if(NoReferrer.Browser.browser['msie']){
-          if(new RegExp(/\?/).test(url)){
-            window.open(url + '&_='+Math.random());
-          }
-          else{
-            window.open(url + '?_='+Math.random());  
-          }
+          wnd.location = url + ((new RegExp(/\?/).test(url)) ? '&_=' : '?_=') + Math.random();
         }
         else if(NoReferrer.Browser.browser['webkit']){
-          if(new RegExp(/\?/).test(url)){
-            location = "data:text/html,<script>location='" + url + '&_=' + Math.random() + "'</scr"+"ipt>";
-          }
-          else{
-            location = "data:text/html,<script>location='" + url + '?_=' + Math.random() + "'</scr"+"ipt>";          
-          }
+          wnd.location = "data:text/html,<script>location='" + url + ((new RegExp(/\?/).test(url)) ? '&_=' : '?_=') + Math.random() + "'</scr"+"ipt>";
           return false;      
         }
         else if(NoReferrer.Browser.browser['mozilla']){
-          location = 'data:text/html,<html><meta http-equiv="refresh" content="0; url='+ url + '"></html>';
+          wnd.location = 'data:text/html,<html><meta http-equiv="refresh" content="0; url='+ url + '"></html>';
         }  
       }   
     }
