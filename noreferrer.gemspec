@@ -4,12 +4,12 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |gem|
   gem.name          = "noreferrer"
-  gem.version       = 0.15
+  gem.version       = 0.16
   gem.authors       = ["Rodney Carvalho"]
   gem.email         = ["rcarvalho@atlantistech.com"]
   gem.description   = "Removes referrer information on an html link."
   gem.summary       = "Removes referrer information on an html link."
-  gem.homepage      = "https://github.com/rjcarvalho/noreferrer"
+  gem.homepage      = "https://github.com/rcarvalho/noreferrer"
 
   gem.files         = `git ls-files`.split($/)
   gem.require_paths = ["lib"]
